@@ -16,7 +16,8 @@ app.use(bodyParser.json());
 app.post('/ask', async (req, res) => {
     const userQuestion = req.body.question.toLowerCase();
     let selectedCar = req.body.selectedCar;
-    console.log(`Question ${selectedCar}`);
+    console.log(`Pregunta a carro: ${selectedCar}`);
+    console.log(`Pregunta: ${userQuestion}`);
 
     // if (selectedCar === null){
     //     return res.json({ response: "Introduzca la palabra \"Agendar\" o seleccione su vehículo." });
@@ -47,6 +48,8 @@ app.post('/ask', async (req, res) => {
             });
 
             if (chatpdfResponse.status === 200) {
+                console.log("respuesta dada:", chatpdfResponse.data['content']);
+
                 return res.json({ response: chatpdfResponse.data['content'] });
             }
         } catch (error) {
@@ -57,7 +60,7 @@ app.post('/ask', async (req, res) => {
 
     try {
         const userQuestion = req.body.question;
-        console.log("Pregunta recibida:", userQuestion);
+        console.log("Pregunta a chatGPT:", userQuestion);
 
         const completion = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
