@@ -25,13 +25,13 @@ app.post('/ask', async (req, res) => {
     // }
 
     if (selectedCar === "Car1"){ // Tang EV
-        sourceId = "cha_wua3hbptWhvhMN3W1Sfgj";
+        sourceId = "cha_wua3hbptpVBcT9DUVTUyhAsPpUqTH";
     }
     else if (selectedCar === "Car2"){ // Han EV
-        sourceId = "cha_o1nrlSars2ax4LYBd9a5f";
+        sourceId = "cha_YPllpUNOF4TOq691HD1R4";
     }
     else if (selectedCar === "Car3"){ // Yuan Plus EV
-        sourceId = "cha_3Re6lgmJs4dmpGdvLDU8P";
+        sourceId = "cha_2yqtmgmZfLs9XVLJP4Vyy";
     }
 
     if (selectedCar) {
