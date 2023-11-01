@@ -5,13 +5,19 @@ const OpenAI = require('openai');
 const axios = require('axios');
 
 
-const OPENAI_API_KEY = "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"; // Tu clave API
+const OPENAI_API_KEY = process.env.KEY;
 const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
 
-const app = express();
+const corsOptions = {
+    origin: 'https://peppy-kataifi-a3afad.netlify.app',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 
-app.use(cors());
+const app = express();
+app.use(cors(corsOptions));
+
 app.use(bodyParser.json());
+
 
 app.post('/ask', async (req, res) => {
     const userQuestion = req.body.question.toLowerCase();
